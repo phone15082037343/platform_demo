@@ -1,0 +1,16 @@
+server:
+  port: 8082
+
+cas:
+  server:
+    prefix: http://server:8080/cas
+    login: ${cas.server.prefix}/login
+    logout: ${cas.server.prefix}/logout
+  client:
+    prefix: http://127.0.0.1:${server.port}
+    login: ${cas.client.prefix}/login/cas
+    logout:
+      relative: /logout/cas
+      url: ${cas.client.prefix}${cas.client.logout.relative}
+  user:
+    inmemory: admin
