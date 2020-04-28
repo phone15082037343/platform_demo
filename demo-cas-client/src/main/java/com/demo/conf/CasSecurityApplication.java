@@ -77,12 +77,12 @@ public class CasSecurityApplication {
         return new Cas20ProxyTicketValidator(casServerPrefix);
     }
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername(casUserInMemory).password("").roles("ADMIN", "USER").build());
-        return manager;
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
+//        manager.createUser(User.withUsername(casUserInMemory).password("").roles("ADMIN", "USER").build());
+//        return manager;
+//    }
 
     /**
      * cas验证处理逻辑
