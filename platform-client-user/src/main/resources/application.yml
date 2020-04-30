@@ -7,3 +7,12 @@ eureka:
   client:
     service-url:
       defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+logging:
+  config: classpath:logback.xml
+  level:
+    com:
+      platform:
+        client:
+          user:
+            interfaces:
+              UserRemoteClient: debug
