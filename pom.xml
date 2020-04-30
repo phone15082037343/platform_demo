@@ -17,6 +17,7 @@
         <module>platform-client-user</module>
         <module>platform-dashboard</module>
         <module>platform-proxy</module>
+        <module>platform-assembly</module>
     </modules>
 
 

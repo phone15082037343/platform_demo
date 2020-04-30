@@ -12,6 +12,7 @@
     <artifactId>platform-proxy</artifactId>
 
     <build>
+        <finalName>platform-proxy</finalName>
         <plugins>
             <!-- spring boot 打包插件 -->
             <plugin>

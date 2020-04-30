@@ -12,6 +12,7 @@
     <artifactId>platform-provider-user</artifactId>
 
     <build>
+        <finalName>platform-provider-user</finalName>
         <plugins>
             <!-- spring boot 打包插件 -->
             <plugin>

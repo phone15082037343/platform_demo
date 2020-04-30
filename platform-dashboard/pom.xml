@@ -12,6 +12,7 @@
     <artifactId>platform-dashboard</artifactId>
 
     <build>
+        <finalName>platform-dashboard</finalName>
         <plugins>
             <!-- spring boot 打包插件 -->
             <plugin>

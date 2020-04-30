@@ -13,6 +13,7 @@
     <packaging>jar</packaging>
 
     <build>
+        <finalName>platform-client-user</finalName>
         <plugins>
             <!-- spring boot 打包插件 -->
             <plugin>
