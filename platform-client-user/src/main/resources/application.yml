@@ -16,3 +16,6 @@ logging:
           user:
             interfaces:
               UserRemoteClient: debug
+feign:
+  hystrix:
+    enabled: true
