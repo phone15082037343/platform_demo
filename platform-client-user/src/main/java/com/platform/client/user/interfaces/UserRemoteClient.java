@@ -5,7 +5,8 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.cloud.openfeign.FeignClientProperties;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@FeignClient(value = "platform-provider-user", path = "/demo", configuration = FeignConfiguration.class)
+@FeignClient(value = "platform-provider-user", path = "/demo", configuration = FeignConfiguration.class
+        , fallbackFactory = UserClientFactory.class)
 public interface UserRemoteClient {
 
     @GetMapping("/hello")

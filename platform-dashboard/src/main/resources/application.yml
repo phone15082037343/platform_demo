@@ -14,9 +14,9 @@ logging:
   config: classpath:logback.xml
 
 turbine:
-  app-config: platform-client
+  app-config: platform-client-user
   aggregator:
     cluster-config: default
   cluster-name-expression: new String("default")
-  instanceUrlSuffix: hystrix.stream
+  instanceUrlSuffix: /hystrix.stream
 
