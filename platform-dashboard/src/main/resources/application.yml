@@ -1,0 +1,22 @@
+server:
+  port: 7000
+
+spring:
+  application:
+    name: platform-dashboard
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+
+logging:
+  config: classpath:logback.xml
+
+turbine:
+  app-config: platform-client
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+  instanceUrlSuffix: hystrix.stream
+
