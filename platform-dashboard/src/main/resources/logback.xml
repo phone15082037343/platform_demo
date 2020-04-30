@@ -9,10 +9,10 @@
     </appender>
 
     <appender name="rollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>logs/platform-eureka.log</file>
+        <file>logs/platform-dashboard.log</file>
         <!-- 按每天滚动文件，如果一天内达到30M也会滚动文件, 滚动文件将会压缩成zip格式 -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>logs/platform-eureka-%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
+            <fileNamePattern>logs/platform-dashboard-%d{yyyy-MM-dd}.%i.zip</fileNamePattern>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>30MB</maxFileSize>
             </timeBasedFileNamingAndTriggeringPolicy>
