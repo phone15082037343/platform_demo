@@ -16,6 +16,7 @@
         <module>platform-provider-user</module>
         <module>platform-client-user</module>
         <module>platform-dashboard</module>
+        <module>platform-proxy</module>
     </modules>
 
 
@@ -99,6 +100,11 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-starter-netflix-turbine</artifactId>
+                <version>${spring-cloud.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
                 <version>${spring-cloud.version}</version>
             </dependency>
 

@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: platform-proxy
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
+
+zuul:
+  routes:
+    platform-client-user:
+      path: /user/**
+
+logging:
+  config: classpath:logback.xml
