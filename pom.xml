@@ -14,6 +14,7 @@
         <!--<module>demo-cas-client</module>-->
         <module>platform-eureka</module>
         <module>platform-provider-user</module>
+        <module>platform-client-user</module>
     </modules>
 
 
