@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: platform-provider-user
+  sleuth:
+    web:
+      client:
+        enabled: true
+    sampler:
+      probability: 1.0
 eureka:
   client:
     service-url:
