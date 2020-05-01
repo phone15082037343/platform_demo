@@ -1,0 +1,16 @@
+server:
+  port: 9101
+
+spring:
+  security:
+    user:
+      name: admin
+      password: admin
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: platform-admin
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:admin@127.0.0.1:8761/eureka/
