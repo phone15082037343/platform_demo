@@ -39,6 +39,7 @@
         <servlet-api.version>2.5</servlet-api.version>
         <zipkin.version>2.12.3</zipkin.version>
         <admin.version>2.1.2</admin.version>
+        <swagger.version>2.9.1</swagger.version>
     </properties>
 
     <build>
@@ -223,6 +224,16 @@
                 <groupId>io.zipkin.java</groupId>
                 <artifactId>zipkin-autoconfigure-ui</artifactId>
                 <version>${zipkin.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
