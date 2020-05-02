@@ -1,9 +1,22 @@
 server:
-  port: 8080
+  port: 8081
 
 spring:
   application:
     name: platform-proxy
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:5432/platform
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 123456
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
 
 eureka:
   client:
@@ -17,3 +30,15 @@ zuul:
 
 logging:
   config: classpath:logback.xml
+
+cas:
+  server:
+    prefix: http://127.0.0.1:8080/cas
+    login: ${cas.server.prefix}/login
+    logout: ${cas.server.prefix}/logout
+  client:
+    prefix: http://127.0.0.1:${server.port}
+    login: ${cas.client.prefix}/login/cas
+    logout:
+      relative: /logout/cas
+      url: ${cas.client.prefix}${cas.client.logout.relative}

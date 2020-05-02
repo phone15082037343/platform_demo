@@ -87,6 +87,16 @@
             <artifactId>spring-aop</artifactId>
             <version>${spring.version}</version>
         </dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.platform</groupId>
+            <artifactId>platform-cas</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
