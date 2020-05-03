@@ -10,7 +10,7 @@
     <packaging>pom</packaging>
 
     <modules>
-        <!--<module>platform-cas-server</module>-->
+        <!--<module>platform-cas-service</module>-->
         <!--<module>demo-cas-client</module>-->
         <module>platform-eureka</module>
         <module>platform-provider-user</module>
@@ -21,6 +21,7 @@
         <module>platform-admin</module>
         <module>platform-assembly</module>
         <module>platform-cas</module>
+        <module>platform-cas-user</module>
     </modules>
 
 
@@ -251,6 +252,11 @@
                 <groupId>org.postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

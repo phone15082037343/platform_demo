@@ -25,13 +25,13 @@ import java.util.Collections;
 @Configuration
 public class CasSecurityApplication {
 
-    @Value("${cas.server.prefix}")
+    @Value("${cas.service.prefix}")
     private String casServerPrefix;
 
-    @Value("${cas.server.login}")
+    @Value("${cas.service.login}")
     private String casServerLogin;
 
-    @Value("${cas.server.logout}")
+    @Value("${cas.service.logout}")
     private String casServerLogout;
 
     @Value("${cas.client.login}")
@@ -117,7 +117,7 @@ public class CasSecurityApplication {
     }
 
     /**
-     * 将注销请求转发到cas server
+     * 将注销请求转发到cas service
      */
     @Bean
     public LogoutFilter logoutFilter() {

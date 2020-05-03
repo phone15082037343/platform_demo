@@ -4,10 +4,10 @@ server:
 cas:
   server:
     prefix: http://127.0.0.1:8080/cas
-    login: ${cas.server.prefix}/login
-    logout: ${cas.server.prefix}/logout
+    login: ${cas.service.prefix}/login
+    logout: ${cas.service.prefix}/logout
   client:
-    prefix: http://127.0.0.1:${server.port}
+    prefix: http://127.0.0.1:${service.port}
     login: ${cas.client.prefix}/login/cas
     logout:
       relative: /logout/cas

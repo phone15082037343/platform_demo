@@ -1,4 +1,4 @@
-package com.platform.cas.conf;
+package com.platform.cas.user.conf;
 
 import org.jasig.cas.client.session.SingleSignOutFilter;
 import org.jasig.cas.client.validation.Cas20ProxyTicketValidator;
@@ -23,13 +23,13 @@ import java.util.Collections;
 @Configuration
 public class CasSecurityApplication {
 
-    @Value("${cas.service.prefix}")
+    @Value("${cas.server.prefix}")
     private String casServerPrefix;
 
-    @Value("${cas.service.login}")
+    @Value("${cas.server.login}")
     private String casServerLogin;
 
-    @Value("${cas.service.logout}")
+    @Value("${cas.server.logout}")
     private String casServerLogout;
 
     @Value("${cas.client.login}")

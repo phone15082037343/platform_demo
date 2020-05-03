@@ -7,7 +7,7 @@
         Or you can change this property to a new default
         -->
         <Property name="cas.log.dir" >.</Property>
-        <!-- To see more CAS specific logging, adjust this property to info or debug or run server with -Dcas.log.leve=debug -->
+        <!-- To see more CAS specific logging, adjust this property to info or debug or run service with -Dcas.log.leve=debug -->
         <Property name="cas.log.level" >warn</Property>
     </Properties>
     <Appenders>
@@ -108,7 +108,7 @@
         <AsyncRoot level="warn">
             <AppenderRef ref="casFile"/>
             <!-- 
-                 For deployment to an application server running as service, 
+                 For deployment to an application service running as service,
                  delete the casConsole appender below
             -->
             <AppenderRef ref="casConsole"/>

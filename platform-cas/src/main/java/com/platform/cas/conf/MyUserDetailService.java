@@ -23,7 +23,7 @@ public class MyUserDetailService implements UserDetailsService {
             throw new UsernameNotFoundException("该用户不存在:" + username);
         }
 
-        // 解析权限集合
+        // TODO 解析权限集合
         administrator.setAuthorities(AuthorityUtils.commaSeparatedStringToAuthorityList(administrator.getRoles()));
         return administrator;
     }
