@@ -1,0 +1,19 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: platform-provider
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@127.0.0.1:8761/eureka/
+
+my:
+  es:
+    index:
+      record: my_record
