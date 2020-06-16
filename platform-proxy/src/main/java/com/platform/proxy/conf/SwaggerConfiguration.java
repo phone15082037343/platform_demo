@@ -24,13 +24,8 @@ public class SwaggerConfiguration {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-                .title("title")
-                .description("description")
-                .termsOfServiceUrl("")
-                .contact(new Contact("", "", ""))
-                .version("1.0")
-                .build();
+        return new ApiInfoBuilder().title("eureka服务端提供者接口平台").description("服务相关数据接口")
+                .license("Licence Version 1.0").licenseUrl("#").version("1.0").build();
     }
 
 }
