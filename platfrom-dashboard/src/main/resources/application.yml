@@ -1,0 +1,18 @@
+server:
+  port: 9210
+
+spring:
+  application:
+    name: platfrom-dashboard
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@127.0.0.1:8761/eureka/
+
+turbine:
+  app-config: platform-client
+  aggregator:
+    cluster-config: default
+  cluster-name-expression: new String("default")
+
