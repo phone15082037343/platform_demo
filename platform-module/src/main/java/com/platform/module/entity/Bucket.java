@@ -6,6 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Data
+@Deprecated
 public class Bucket implements Serializable {
 
     private String key;

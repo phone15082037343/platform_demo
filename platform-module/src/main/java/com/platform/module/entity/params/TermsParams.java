@@ -9,6 +9,7 @@ import java.io.Serializable;
 
 @Data
 @ApiModel(value = "com.platform.module.entity.params.TermsParams", description = "参数")
+@Deprecated
 public class TermsParams implements Serializable {
 
     /** 条数 */

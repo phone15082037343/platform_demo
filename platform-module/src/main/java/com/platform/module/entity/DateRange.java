@@ -11,6 +11,7 @@ import java.util.Date;
 
 @Data
 @ApiModel(value = "时间范围", description = "用于设置时间范围")
+@Deprecated
 public class DateRange implements Serializable {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
