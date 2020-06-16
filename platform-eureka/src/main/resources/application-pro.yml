@@ -13,13 +13,13 @@ eureka:
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${spring.cloud.client.ipAddress}:${spring.application.instance_id:${server.port}}
-    lease-expiration-duration-in-seconds: 5
-    lease-renewal-interval-in-seconds: 5
+    lease-expiration-duration-in-seconds: 90
+    lease-renewal-interval-in-seconds: 30
   client:
     register-with-eureka: false
     fetch-registry: false
     healthcheck:
       enabled: true
   server:
-    enable-self-preservation: false
-    eviction-interval-timer-in-ms: 5000
+    enable-self-preservation: true
+    eviction-interval-timer-in-ms: 60000
