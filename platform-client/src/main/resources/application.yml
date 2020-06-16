@@ -1,0 +1,33 @@
+server:
+  port: 9100
+
+spring:
+  application:
+    name: platform-client
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@127.0.0.1:8761/eureka/
+
+logging:
+  level:
+    com:
+      platform:
+        client:
+          api:
+            RecordClient: debug
+
+feign:
+  hystrix:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
