@@ -19,7 +19,7 @@
         <module>platform-security</module>
 
         <!-- 放在最后 -->
-        <!--<module>platform-assembly</module>-->
+        <module>platform-assembly</module>
     </modules>
 
     <properties>
@@ -36,6 +36,8 @@
         <servlet-api.version>2.5</servlet-api.version>
         <swagger2.version>2.8.0</swagger2.version>
         <elasticsearch.version>7.1.0</elasticsearch.version>
+        <druid.version>1.1.20</druid.version>
+        <postgresql.version>42.2.11</postgresql.version>
     </properties>
 
     <build>
@@ -115,6 +117,11 @@
                 <artifactId>spring-boot-starter-security</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring-boot.version}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.google.code.gson</groupId>
@@ -162,6 +169,17 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger2.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+            <!-- TODO del -->
             <dependency>
                 <groupId>org.elasticsearch.client</groupId>
                 <artifactId>elasticsearch-rest-high-level-client</artifactId>

@@ -8,7 +8,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableDiscoveryClient
 @EnableSwagger2
-@SpringBootApplication(scanBasePackages = { "com.platform.module.entity", "com.platform.provider" })
+@SpringBootApplication
 public class ProviderApplication {
 
     public static void main(String[] args) {
