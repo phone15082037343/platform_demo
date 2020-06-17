@@ -2,16 +2,12 @@ package com.platform.provider.controller;
 
 import com.platform.provider.entity.AddAdmin;
 import com.platform.provider.entity.Administrator;
+import com.platform.provider.entity.UpdateAdmin;
 import com.platform.provider.repository.AdminRepository;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
@@ -29,6 +25,31 @@ public class AdminController {
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(addAdmin, administrator);
         administrator.setCreateTime(new Date());
+        adminRepository.save(administrator);
+        return administrator;
+    }
+
+    @PutMapping
+    @ApiOperation(value = "更新系统管理员", notes = "更新系统管理员参数")
+    public Administrator update(@ApiParam(value = "更新系统管理员参数", required = true) @RequestBody UpdateAdmin updateAdmin) {
+        Administrator administrator = adminRepository.findByAdminId(updateAdmin.getAdminId());
+        BeanUtils.copyProperties(updateAdmin, administrator);
+        administrator.setLastUpdate(new Date());
+        adminRepository.save(administrator);
+        return administrator;
+    }
+
+    @PutMapping("/{adminId}")
+    @ApiOperation(value = "更新系统管理员", notes = "更新系统管理员参数")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "adminId", required = true)
+    })
+    public Administrator update(@PathVariable String adminId, @ApiParam(value = "更新系统管理员参数", required = true) @RequestBody UpdateAdmin updateAdmin) {
+        Administrator administrator = adminRepository.findByAdminId(adminId);
+        BeanUtils.copyProperties(updateAdmin, administrator);
+
+        administrator.setAdminId(adminId);
+        administrator.setLastUpdate(new Date());
         adminRepository.save(administrator);
         return administrator;
     }
