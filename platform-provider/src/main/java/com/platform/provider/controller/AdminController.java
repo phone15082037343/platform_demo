@@ -2,6 +2,7 @@ package com.platform.provider.controller;
 
 import com.platform.provider.entity.AddAdmin;
 import com.platform.provider.entity.Administrator;
+import com.platform.provider.entity.Response;
 import com.platform.provider.entity.UpdateAdmin;
 import com.platform.provider.repository.AdminRepository;
 import io.swagger.annotations.*;
@@ -21,12 +22,12 @@ public class AdminController {
 
     @ApiOperation(value = "添加系统管理员", notes = "添加系统管理员，参数非空")
     @PostMapping
-    public Administrator save(@ApiParam(value = "添加系统管理员参数", required = true) @RequestBody AddAdmin addAdmin) {
+    public Response save(@ApiParam(value = "添加系统管理员参数", required = true) @RequestBody AddAdmin addAdmin) {
         Administrator administrator = new Administrator();
         BeanUtils.copyProperties(addAdmin, administrator);
         administrator.setCreateTime(new Date());
         adminRepository.save(administrator);
-        return administrator;
+        return new Response(Response.SUCCESS, "添加管理员成功", administrator);
     }
 
     @PutMapping
