@@ -1,14 +1,19 @@
 package com.platform.provider.controller;
 
 import com.platform.common.module.AdminDto;
+import com.platform.common.utils.ajax.PageModule;
 import com.platform.provider.entity.Administrator;
 import com.platform.provider.repository.AdminRepository;
 import io.swagger.annotations.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/admin")
@@ -45,9 +50,33 @@ public class AdminController {
             @ApiImplicitParam(name = "adminId", required = true)
     })
     @DeleteMapping("/{adminId}")
-    public String deleteById0(@PathVariable String adminId) {
+    public String deleteById(@PathVariable String adminId) {
         adminRepository.deleteById(adminId);
         return adminId;
+    }
+
+    @ApiModelProperty(value = "分页查询", notes = "分页查询")
+    @GetMapping
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "pageNo", defaultValue = "1", value = "当前页号"),
+            @ApiImplicitParam(name = "size", defaultValue = "10", value = "每页展示条数")
+    })
+    public PageModule<AdminDto> queryPage(@RequestParam(name = "pageNo", required = false, defaultValue = "1") int pageNo,
+                                          @RequestParam(name = "size", required = false, defaultValue = "10") int size) {
+
+        Page<Administrator> page = adminRepository.findAll(PageRequest.of(pageNo - 1, size));
+        PageModule<AdminDto> pm = new PageModule<>();
+        pm.setCurrentPage(pageNo);
+        pm.setSize(size);
+        pm.setTotalCount(page.getTotalElements());
+        pm.setTotalPage(page.getTotalPages());
+        List<AdminDto> list = page.get().map(administrator -> {
+            AdminDto adminDto = new AdminDto();
+            BeanUtils.copyProperties(administrator, adminDto);
+            return adminDto;
+        }).collect(Collectors.toList());
+        pm.setList(list);
+        return pm;
     }
 
 }
