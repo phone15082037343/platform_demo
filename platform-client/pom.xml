@@ -35,11 +35,6 @@
     </build>
 
     <dependencies>
-        <!--<dependency>
-            <groupId>com.platform</groupId>
-            <artifactId>platform-module</artifactId>
-            <version>${project.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>com.platform</groupId>
             <artifactId>platform-common</artifactId>
