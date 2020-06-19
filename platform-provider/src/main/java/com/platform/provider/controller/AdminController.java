@@ -1,9 +1,9 @@
 package com.platform.provider.controller;
 
+import com.platform.admin.entity.Administrator;
+import com.platform.admin.repository.AdminRepository;
 import com.platform.common.module.AdminDto;
 import com.platform.common.utils.ajax.PageModule;
-import com.platform.provider.entity.Administrator;
-import com.platform.provider.repository.AdminRepository;
 import io.swagger.annotations.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

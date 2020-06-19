@@ -21,6 +21,7 @@
 
         <!-- 放在最后 -->
         <module>platform-assembly</module>
+        <module>platform-admin</module>
     </modules>
 
     <properties>

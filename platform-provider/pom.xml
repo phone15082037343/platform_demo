@@ -40,6 +40,11 @@
             <artifactId>platform-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.platform</groupId>
+            <artifactId>platform-admin</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
