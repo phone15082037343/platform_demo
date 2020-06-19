@@ -1,20 +1,13 @@
-package com.platform.provider.controller;
+package com.platform.client.controller;
 
-import com.platform.admin.entity.Administrator;
-import com.platform.admin.repository.AdminRepository;
+import com.platform.client.api.AdminClient;
 import com.platform.common.module.AdminDto;
 import com.platform.common.utils.ajax.PageModule;
 import io.swagger.annotations.*;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-import java.util.Objects;
-import java.util.stream.Collectors;
+import java.awt.*;
 
 @RestController
 @RequestMapping("/admin")
@@ -22,20 +15,12 @@ import java.util.stream.Collectors;
 public class AdminController {
 
     @Autowired
-    private AdminRepository adminRepository;
-
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    private AdminClient adminClient;
 
     @RequestMapping(method = { RequestMethod.POST, RequestMethod.PUT })
     @ApiOperation(value = "保存系统管理员", notes = "保存系统管理员，参数非空")
     public AdminDto save(@ApiParam(value = "保存系统管理员参数", required = true) @RequestBody AdminDto adminDto) {
-        Administrator administrator = new Administrator();
-        BeanUtils.copyProperties(adminDto, administrator);
-        adminRepository.save(administrator);
-        administrator.setPassword(passwordEncoder.encode(administrator.getPassword()));
-        BeanUtils.copyProperties(administrator, adminDto);
-        return adminDto;
+        return adminClient.save(adminDto);
     }
 
     @ApiOperation(value = "根据ID查询系统管理员", notes = "根据ID查询系统管理员，ID直接拼接在url地址后面")
@@ -44,10 +29,7 @@ public class AdminController {
     })
     @GetMapping("/{adminId}")
     public AdminDto findById(@PathVariable String adminId) {
-        Administrator administrator = adminRepository.findById(adminId).orElse(null);
-        AdminDto adminDto = new AdminDto();
-        BeanUtils.copyProperties(Objects.requireNonNull(administrator), adminDto);
-        return adminDto;
+        return adminClient.findById(adminId);
     }
 
     @ApiOperation(value = "根据ID删除系统管理员", notes = "根据ID删除系统管理员，ID直接拼接在url地址后面")
@@ -56,7 +38,7 @@ public class AdminController {
     })
     @DeleteMapping("/{adminId}")
     public String deleteById(@PathVariable String adminId) {
-        adminRepository.deleteById(adminId);
+        adminClient.deleteById(adminId);
         return adminId;
     }
 
@@ -68,20 +50,7 @@ public class AdminController {
     })
     public PageModule<AdminDto> queryPage(@RequestParam(name = "pageNo", required = false, defaultValue = "1") int pageNo,
                                           @RequestParam(name = "size", required = false, defaultValue = "10") int size) {
-
-        Page<Administrator> page = adminRepository.findAll(PageRequest.of(pageNo - 1, size));
-        PageModule<AdminDto> pm = new PageModule<>();
-        pm.setCurrentPage(pageNo);
-        pm.setSize(size);
-        pm.setTotalCount(page.getTotalElements());
-        pm.setTotalPage(page.getTotalPages());
-        List<AdminDto> list = page.get().map(administrator -> {
-            AdminDto adminDto = new AdminDto();
-            BeanUtils.copyProperties(administrator, adminDto);
-            return adminDto;
-        }).collect(Collectors.toList());
-        pm.setList(list);
-        return pm;
+        return adminClient.queryPage(pageNo, size);
     }
 
 }

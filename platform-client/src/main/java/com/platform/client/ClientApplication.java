@@ -13,7 +13,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableFeignClients
 @EnableHystrix
 @EnableSwagger2
-@SpringBootApplication(scanBasePackages = { "com.platform.module.entity", "com.platform.client" })
+@SpringBootApplication
 @ServletComponentScan
 public class ClientApplication {
 
