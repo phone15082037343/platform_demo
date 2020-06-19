@@ -21,11 +21,11 @@ public class AdminRole implements Serializable {
     @GeneratedValue(generator = "uuidGenerator")
     private String adminRoleId;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "admin_id", referencedColumnName = "admin_id")
     private Administrator admin;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "role_id")
     private Role role;
 

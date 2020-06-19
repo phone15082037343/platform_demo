@@ -39,7 +39,7 @@ public class MyUserDetailService implements UserDetailsService {
         }
 
         // 获取用户角色
-        List<AdminRole> adminRoleList = adminRoleRepository.findByUserId(administrator.getAdminId());
+        List<AdminRole> adminRoleList = adminRoleRepository.findByAdminId(administrator.getAdminId());
         // 角色ID
         List<String> roleIds = adminRoleList.stream().map(userRole -> userRole.getRole().getRoleId()).collect(Collectors.toList());
         // 角色列表
