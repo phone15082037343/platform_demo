@@ -33,7 +33,7 @@ public class AdminController {
         return adminDto;
     }
 
-    @ApiOperation(value = "根据ID查询系统管理员", notes = "根据ID查询系统管理员")
+    @ApiOperation(value = "根据ID查询系统管理员", notes = "根据ID查询系统管理员，ID直接拼接在url地址后面")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "adminId", required = true)
     })
@@ -45,7 +45,7 @@ public class AdminController {
         return adminDto;
     }
 
-    @ApiOperation(value = "根据ID删除系统管理员", notes = "根据ID删除系统管理员")
+    @ApiOperation(value = "根据ID删除系统管理员", notes = "根据ID删除系统管理员，ID直接拼接在url地址后面")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "adminId", required = true)
     })
@@ -55,7 +55,7 @@ public class AdminController {
         return adminId;
     }
 
-    @ApiModelProperty(value = "分页查询", notes = "分页查询")
+    @ApiOperation(value = "分页查询", notes = "分页查询，这里只是简单做了一个demo")
     @GetMapping
     @ApiImplicitParams({
             @ApiImplicitParam(name = "pageNo", defaultValue = "1", value = "当前页号"),
