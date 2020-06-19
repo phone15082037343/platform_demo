@@ -17,6 +17,7 @@
         <module>platfrom-dashboard</module>
         <module>platform-module</module>
         <module>platform-security</module>
+        <module>platform-common</module>
 
         <!-- 放在最后 -->
         <module>platform-assembly</module>

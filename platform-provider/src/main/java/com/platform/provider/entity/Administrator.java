@@ -5,7 +5,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Date;
 
 @Data
 @Entity
@@ -26,11 +25,5 @@ public class Administrator implements Serializable {
 
     @Column(name = "disable")
     private boolean disable;
-
-    @Column(name = "create_time")
-    private Date createTime;
-
-    @Column(name = "last_update")
-    private Date lastUpdate;
 
 }
