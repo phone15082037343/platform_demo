@@ -19,6 +19,8 @@ logging:
         client:
           api:
             AdminClient: debug
+            RoleClient: debug
+            AuthorityClient: debug
 
 feign:
   hystrix:
