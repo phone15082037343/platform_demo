@@ -29,3 +29,17 @@ eureka:
   client:
     service-url:
       defaultZone: http://admin:123456@127.0.0.1:8761/eureka/
+
+
+# cas
+cas:
+  server:
+    prefix: http://127.0.0.1:8080/cas
+    login: ${cas.server.prefix}/login
+    logout: ${cas.server.prefix}/logout
+  client:
+    prefix: http://127.0.0.1:${server.port}
+    login: ${cas.client.prefix}/login/cas
+    logout:
+      relative: /logout/cas
+      absolute: ${cas.client.prefix}${cas.client.logout.relative}
