@@ -43,3 +43,30 @@ cas:
     logout:
       relative: /logout/cas
       absolute: ${cas.client.prefix}${cas.client.logout.relative}
+
+
+# 初始化超级管理员账户、角色、权限
+my:
+  system:
+    init: false
+    admin:
+      username: admin
+      password: 123456
+      disable: false
+    roles[0]:
+      role-name: 超级管理员
+    authorities[0]:
+      authority-name: 管理员管理
+      authority-url: /admin/**
+    authorities[1]:
+      authority-name: 角色管理
+      authority-url: /role/**
+    authorities[2]:
+      authority-name: 权限管理
+      authority-url: /authority/**
+    authorities[3]:
+      authority-name: 用户授权
+      authority-url: /adminrole/grant
+    authorities[4]:
+      authority-name: 角色授权
+      authority-url: /roleauthority/grant
